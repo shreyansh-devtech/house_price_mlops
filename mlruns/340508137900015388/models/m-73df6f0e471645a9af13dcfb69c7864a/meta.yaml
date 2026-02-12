@@ -1,0 +1,10 @@
+artifact_location: file:///Users/comp-80/Desktop/house-price-mlops/mlruns/340508137900015388/models/m-73df6f0e471645a9af13dcfb69c7864a/artifacts
+creation_timestamp: 1770891488045
+experiment_id: '340508137900015388'
+last_updated_timestamp: 1770891491644
+model_id: m-73df6f0e471645a9af13dcfb69c7864a
+model_type: null
+name: model
+source_run_id: 17e70461b43e4a1bab6f881a87a6751f
+status: 2
+status_message: null
