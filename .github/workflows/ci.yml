@@ -36,7 +36,10 @@ jobs:
 
       # Step 4: Run training script
       - name: Run Training Script
+        env:
+          MLFLOW_TRACKING_DIR: .mlruns
         run: |
+          rm -rf .mlruns
           python src/data_ingestion.py
           python src/data_transformation.py
           python src/train.py

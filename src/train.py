@@ -6,6 +6,7 @@
 import pandas as pd
 import numpy as np
 import os
+from pathlib import Path
 
 # Sklearn utilities
 from sklearn.model_selection import train_test_split
@@ -142,8 +143,11 @@ def train_and_log_model(model, model_name, X_train, X_test, y_train, y_test):
 # ---------------------------------------------------
 if __name__ == "__main__":
 
-    # Set MLflow tracking URI to local folder
-    mlflow.set_tracking_uri("file:./mlruns")
+    # Use a workspace-local tracking directory by default.
+    # This avoids stale absolute paths from committed MLflow metadata.
+    tracking_dir = Path(os.getenv("MLFLOW_TRACKING_DIR", ".mlruns")).resolve()
+    tracking_dir.mkdir(parents=True, exist_ok=True)
+    mlflow.set_tracking_uri(f"file://{tracking_dir}")
 
     # Set experiment name
     mlflow.set_experiment("House_Price_Classification")
